@@ -1,0 +1,29 @@
+services:
+  mongodb:
+    image: mongo:latest # Or specify a specific version like mongo:6
+    container_name: mongodb_container
+    ports:
+      - "27017:27017" # Map host port 27017 to container port 27017
+    volumes:
+      - mongodb_data:/data/db # Persist data in a named volume
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    restart: always
+
+  redis:
+    image: redis:latest
+    container_name: redis-container
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: always
+    environment:
+    # Optional: Set a password for Redis
+     REDIS_PASSWORD: "Teste@123"
+    # Optional: Configure protected mode (off by default in official image)
+    # REDIS_PROTECTED_MODE: "no"
+volumes:
+  mongodb_data:
+  redis_data:
