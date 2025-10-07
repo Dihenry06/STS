@@ -1,7 +1,7 @@
 package com.dhs.platform.security_token_service.adapters.out.repository;
 
 import com.dhs.platform.security_token_service.domain.model.Client;
-import com.dhs.platform.security_token_service.domain.port.ClientRepository;
+import com.dhs.platform.security_token_service.domain.port.out.repository.IClientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -14,7 +14,7 @@ import java.util.Optional;
 @Repository
 @Primary
 @RequiredArgsConstructor
-public class MongoClientRepository implements ClientRepository {
+public class ClientRepository implements IClientRepository {
 
     private final MongoTemplate mongoTemplate;
 
